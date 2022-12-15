@@ -3,20 +3,20 @@ import { formatDistance, subDays } from 'date-fns'
 let Masonry = require('masonry-layout');
 
 let notes= [
-    // {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
-    // {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
-    // {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
-    // {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
-    // {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
-    // {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
-    // {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
-    // {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
-    // {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
-    // {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
-    // {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
-    // {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
-    // {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
-    // {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'}
+    {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
+    {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
+    {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
+    {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
+    {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
+    {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
+    {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
+    {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
+    {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
+    {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
+    {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
+    {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
+    {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
+    {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'}
 ];
 
 const noteTaking = (title, note) => {
@@ -24,7 +24,7 @@ const noteTaking = (title, note) => {
   }
 
 function clearNotes() {
-    notesToDelete = document.querySelectorAll('.noteContainer');
+    const notesToDelete = document.querySelectorAll('.noteContainer');
     for (let i = 0; i < notesToDelete.length; i++) {
         notesToDelete[i].remove();
     }
@@ -66,9 +66,6 @@ function submitNote(title, note) {
     displayNotes();
 }
 
-
-// displayNotes();
-
 // edit note
 function changeNote(title, note, index) {
     notes[index].title = title
@@ -96,3 +93,5 @@ function submitForm() {
 }
 
 btnSubmit.addEventListener('click', submitForm);
+
+displayNotes()
