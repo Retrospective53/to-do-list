@@ -8,24 +8,14 @@ body {
     height: 100%;
     width: 100%;
     max-width: 100%;
-    
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 30px;
+    display: grid;
 }
 
 .noteContainer {
-    min-height: 30%;
     width: 15%;
-    height: fit-content;
     background-color: bisque;
-    display: flex;
-    flex-direction: column;
-    padding-left: 1.5%;
-    padding-right: 1.5%;
-    /* margin: 30px; */
+    margin: 10px;
+    padding: 2%;
 }
 
 .noteContent {
