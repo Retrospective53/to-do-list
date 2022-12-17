@@ -1,6 +1,6 @@
-import './styles/main.css';
-import { formatDistance, subDays } from 'date-fns'
-let Masonry = require('masonry-layout');
+// import './styles/main.css';
+// import { formatDistance, subDays } from 'date-fns'
+// let Masonry = require('masonry-layout');
 
 let notes= [
     // {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
@@ -35,9 +35,9 @@ function displayNotes() {
     for (let i = 0; i < notes.length; i++) {
         const noteContainer = document.createElement('div');
         noteContainer.className = 'noteContainer';
-        const noteTitle = document.createElement('h3');
+        const noteTitle = document.createElement('textarea');
         noteTitle.className = 'noteTitle';
-        const noteContent = document.createElement('p');
+        const noteContent = document.createElement('textarea');
         noteContent.className = 'noteContent';
 
 
@@ -93,3 +93,20 @@ function submitForm() {
 }
 
 btnSubmit.addEventListener('click', submitForm);
+
+// notification
+const notifContainer = document.createElement('notifContainer');
+notifContainer.id = 'notifContainer';
+content.appendChild(notifContainer);
+
+function notificationPop() {
+    const notif = document.createElement('notif');
+    notif.className = 'notif';
+    notif.textContent = 'Note Added';
+    notifContainer.appendChild(notif);
+    setTimeout(() => {
+        notif.remove()
+    }, 3000);
+}
+
+btnSubmit.addEventListener('click', notificationPop);

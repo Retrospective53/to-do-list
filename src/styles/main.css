@@ -4,6 +4,10 @@ body {
     overflow: scroll;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 #content {
     height: 100%;
     width: 100%;
@@ -12,14 +16,42 @@ body {
 }
 
 .noteContainer {
-    width: 15%;
+    width: 250px;
     background-color: bisque;
     margin: 10px;
-    padding: 2%;
 }
 
-.noteContent {
+.noteContent,
+.noteTitle {
+    width: 100%;
     text-overflow: ellipsis;
     overflow-wrap: normal;
     word-wrap: break-word;
+}
+
+
+/* notification */
+
+#notifContainer {
+    min-height: 0%;
+    width: 30%;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.notif {
+    width: 100%;
+    height: 30px;
+    background-color: brown;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 20px;
 }
