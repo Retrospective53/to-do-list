@@ -89,6 +89,7 @@ function displayNotes() {
             notes.splice(i,1);
             noteContainer.remove();
             localStorage.setItem('notes', JSON.stringify(notes));
+            notificationDelete();
             masonryLayOut();
         })
 
@@ -147,12 +148,21 @@ content.appendChild(notifContainer);
 function notificationPop() {
     const notif = document.createElement('notif');
     notif.className = 'notif';
-    notif.textContent = 'Note Added';
+    notif.textContent = 'Note added';
     notifContainer.appendChild(notif);
     setTimeout(() => {
         notif.remove()
     }, 3000);
 }
 
+function notificationDelete() {
+    const notif = document.createElement('notif');
+    notif.className = 'notif';
+    notif.textContent = 'Note deleted';
+    notifContainer.appendChild(notif);
+    setTimeout(() => {
+        notif.remove()
+    }, 3000);
+}
 btnSubmit.addEventListener('click', notificationPop);
 displayNotes();
