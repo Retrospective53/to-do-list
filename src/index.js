@@ -2,22 +2,29 @@
 // import { formatDistance, subDays } from 'date-fns'
 // let Masonry = require('masonry-layout');
 
-let notes= [
-    // {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
-    // {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
-    // {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
-    // {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
-    // {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
-    // {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
-    // {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
-    // {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
-    // {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
-    // {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
-    // {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
-    // {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
-    // {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'},
-    // {title: 'aqua', note: 'ariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssssariassssssssssssssssss'}
-];
+let notes= [];
+let notesLocalStorage = JSON.parse(localStorage.getItem('notes'));
+if (notesLocalStorage === null) {
+    notesLocalStorage = [
+        {title: 'Home renovation', note: 'buy hammer'}
+    ]
+}
+
+function masonryLayOut() {
+    // masonry layout
+    let elem = document.querySelector('#content');
+    let msnry = new Masonry( elem, {
+    // options
+    itemSelector: '.noteContainer',
+    columnWidth: 10
+    });
+}
+
+notesLocalStorage.forEach(noteLocalStorage => {
+    notes.push(noteLocalStorage);
+})
+
+
 
 const noteTaking = (title, note) => {
     return {title, note}
@@ -33,34 +40,72 @@ function clearNotes() {
 
 function displayNotes() {
     for (let i = 0; i < notes.length; i++) {
+
+        // create container for the note
         const noteContainer = document.createElement('div');
         noteContainer.className = 'noteContainer';
-        const noteTitle = document.createElement('textarea');
+        const noteTitle = document.createElement('input');
         noteTitle.className = 'noteTitle';
         const noteContent = document.createElement('textarea');
         noteContent.className = 'noteContent';
 
+        // create button
+        const buttonContainer = document.createElement('div');
+        const editButton = document.createElement('button');
+        const deleteButton = document.createElement('button');
+        const saveButton = document.createElement('button');
+        buttonContainer.className = 'buttonContainer';
+        deleteButton.className = 'deleteButton';
+        saveButton.className = 'saveButton';
 
+        editButton.textContent = 'Edit'
+        deleteButton.textContent = 'Delete'
+        saveButton.textContent = 'Save'
+        
+        // insert into html
         noteContainer.appendChild(noteTitle);
         noteContainer.appendChild(noteContent);
         content.appendChild(noteContainer);
 
-        noteTitle.textContent = notes[i].title
-        noteContent.textContent = notes[i].note
+        buttonContainer.appendChild(saveButton);
+        buttonContainer.appendChild(deleteButton);
+        noteContainer.appendChild(buttonContainer);
 
-        // masonry layout
-        let elem = document.querySelector('#content');
-        let msnry = new Masonry( elem, {
-        // options
-        itemSelector: '.noteContainer',
-        columnWidth: 10
-        });
+        // change the value for the content
+        noteTitle.value = notes[i].title
+        noteTitle.type = 'text'
+        noteContent.textContent = notes[i].note
+        noteContent.type = 'text'
+
+        // save everytime 
+        saveButton.addEventListener('click', () => {
+            notes[i].title = noteTitle.value;
+            notes[i].note = noteContent.value;
+            localStorage.setItem('notes', JSON.stringify(notes));
+        })
+
+        // delete note
+        deleteButton.addEventListener('click', () => {
+            notes.splice(i,1);
+            noteContainer.remove();
+            localStorage.setItem('notes', JSON.stringify(notes));
+            masonryLayOut();
+        })
+
+        // noteTitle.addEventListener('keypress', () => {
+            
+        // })
+
+        masonryLayOut();
     }
 }
 
 function submitNote(title, note) {
     const newNote = noteTaking(title, note);
     notes.push(newNote);
+
+    // store to localstorage
+    localStorage.setItem('notes', JSON.stringify(notes));
 
     clearNotes();
     displayNotes();
@@ -110,3 +155,4 @@ function notificationPop() {
 }
 
 btnSubmit.addEventListener('click', notificationPop);
+displayNotes();
