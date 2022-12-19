@@ -26,8 +26,8 @@ notesLocalStorage.forEach(noteLocalStorage => {
 
 
 
-const noteTaking = (title, note) => {
-    return {title, note}
+const noteTaking = (title, note, dueDate, priority) => {
+    return {title, note, dueDate, priority}
   }
 
 function clearNotes() {
@@ -54,6 +54,7 @@ function displayNotes() {
         const editButton = document.createElement('button');
         const deleteButton = document.createElement('button');
         const saveButton = document.createElement('button');
+        const dueDateButton = document.createElement('input');
         buttonContainer.className = 'buttonContainer';
         deleteButton.className = 'deleteButton';
         saveButton.className = 'saveButton';
@@ -75,7 +76,7 @@ function displayNotes() {
         noteTitle.value = notes[i].title
         noteTitle.type = 'text'
         noteContent.textContent = notes[i].note
-        noteContent.type = 'text'
+        
 
         // save everytime 
         saveButton.addEventListener('click', () => {
@@ -87,15 +88,11 @@ function displayNotes() {
         // delete note
         deleteButton.addEventListener('click', () => {
             notes.splice(i,1);
-            noteContainer.remove();
             localStorage.setItem('notes', JSON.stringify(notes));
+            noteContainer.remove();
             notificationDelete();
             masonryLayOut();
         })
-
-        // noteTitle.addEventListener('keypress', () => {
-            
-        // })
 
         masonryLayOut();
     }
@@ -112,18 +109,6 @@ function submitNote(title, note) {
     displayNotes();
 }
 
-// edit note
-function changeNote(title, note, index) {
-    notes[index].title = title
-    notes[index].note = note
-}
-
-const popUpForm = document.createElement('div');
-const formContainer = document.createElement('div');
-
-const formNote = document.createElement('form');
-const labelTitle = document.createElement('label');
-const labelNote = document.createElement('input');
 
 //Button Submit
 const btnSubmit = document.getElementById('btnSubmit');

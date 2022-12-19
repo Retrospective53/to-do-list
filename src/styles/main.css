@@ -2,10 +2,40 @@ body {
     height: 100vh;
     width: 100vw;
     overflow: scroll;
+    margin: 0;
 }
 
 * {
     box-sizing: border-box;
+}
+
+#header {
+    display: flex;
+    width: 100%;
+    height: 10%;
+    background-color: brown;
+    color: white;
+    align-items: center;
+    padding-left: 30px;
+    z-index: 1000;
+}
+
+#screen {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+#sidebar {
+    width: 20%;
+    height: 100vh;
+    background-color: rgb(238, 167, 167);
+    color: white;
+}
+
+#abab {
+    width: 100vw;
+    padding: 20px;
 }
 
 #content {
@@ -59,4 +89,8 @@ body {
 .buttonContainer {
     width: 100%;
     
+}
+
+textarea {
+    resize: none;
 }
