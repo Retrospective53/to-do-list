@@ -1,6 +1,6 @@
-// import './styles/main.css';
-// import { formatDistance, subDays } from 'date-fns'
-// let Masonry = require('masonry-layout');
+import './styles/main.css';
+import { formatDistance, subDays } from 'date-fns'
+let Masonry = require('masonry-layout');
 
 let notes= [];
 let notesLocalStorage = JSON.parse(localStorage.getItem('notes'));
@@ -98,6 +98,14 @@ function displayNotes() {
     }
 }
 
+const titleForm = document.getElementById('title')
+const noteForm = document.getElementById('note')
+
+function clearForm() {
+    titleForm.value = '';
+    noteForm.value = '';
+}
+
 function submitNote(title, note) {
     const newNote = noteTaking(title, note);
     notes.push(newNote);
@@ -107,6 +115,7 @@ function submitNote(title, note) {
 
     clearNotes();
     displayNotes();
+    clearForm();
 }
 
 
@@ -116,8 +125,6 @@ btnSubmit.addEventListener('click', (e) => {
     e.preventDefault();
 })
 
-const titleForm = document.getElementById('title')
-const noteForm = document.getElementById('note')
 
 function submitForm() {
     submitNote(titleForm.value , noteForm.value)

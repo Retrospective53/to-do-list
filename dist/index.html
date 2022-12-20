@@ -8,15 +8,29 @@
     <script src="./main.js" defer></script>
 </head>
 <body>
-    <div id="formContainer">
-        <form id="form">
-            <label for="title">title</label><br>
-            <input type="text" name="title" id="title"><br>
-            <label for="note">note</label><br>
-            <input type="text" name="note" id="note"><br>
-            <button type="submit" id="btnSubmit">submit</button>
-        </form>
+    <div id="header">
+        <h1>To-Do</h1>
     </div>
-    <div id="content"></div>
+    <div id="screen">
+        <div id="sidebar">
+            <h2>Note</h2>
+            <h2>To-do
+            </h2>
+        </div>
+        <div id="abab">
+            <div id="formContainer">
+                <form id="form">
+                    <label for="title">title</label><br>
+                    <input type="text" name="title" id="title"><br>
+                    <label for="note">note</label><br>
+                    <textarea name="note" id="note" ></textarea>
+                        <br>
+                    <button type="submit" id="btnSubmit">submit</button>
+                </form>
+            </div>
+            <div id="content">
+            </div>
+        </div>
+    </div>
 </body>
 </html>
